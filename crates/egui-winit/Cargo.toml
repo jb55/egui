@@ -50,7 +50,10 @@ instant = { version = "0.1", features = [
   "wasm-bindgen",
 ] } # We use instant so we can (maybe) compile for web
 tracing = { version = "0.1", default-features = false, features = ["std"] }
-winit = { version = "0.27.2", default-features = false }
+
+# This dependency will only be included when targeting Android
+[target.'cfg(target_os = "android")'.dependencies]
+winit = { git="https://github.com/rust-windowing/winit.git", default-features = false, features = ["android-native-activity"] }
 
 #! ### Optional dependencies
 
@@ -70,3 +73,4 @@ smithay-clipboard = { version = "0.6.3", optional = true }
 
 [target.'cfg(not(target_os = "android"))'.dependencies]
 arboard = { version = "3.2", optional = true, default-features = false }
+winit = { git="https://github.com/rust-windowing/winit.git", default-features = false }
