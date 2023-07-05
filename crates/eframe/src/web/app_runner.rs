@@ -252,6 +252,7 @@ impl AppRunner {
             ime,
             #[cfg(feature = "accesskit")]
                 accesskit_update: _, // not currently implemented
+            text_input_state: _, // not currently implemented
         } = platform_output;
 
         super::set_cursor_icon(cursor_icon);

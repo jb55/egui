@@ -81,4 +81,8 @@ wgpu = { version = "0.19.1", default-features = false, features = [
     # Make the renderer `Sync` even on wasm32, because it makes the code simpler:
     "fragile-send-sync-non-atomic-wasm",
 ] }
-winit = { version = "0.29.4", default-features = false }
+winit = { version = "0.29.15", default-features = false }
+
+
+[patch.crates-io]
+winit = { git = "https://github.com/jb55/winit", branch = "android-ime-0.29.x", default-features = false }
